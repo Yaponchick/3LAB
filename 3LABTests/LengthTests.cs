@@ -96,20 +96,25 @@ namespace _3LAB.Tests
         [TestMethod()]
         public void Less()
         {
-            Length length1 = new Length(5, 5);
-            Length length2 = new Length(1, 5);
+            Length length1 = new Length(10, 4);
+            Length length2 = new Length(10, 2);
 
-            Length division = length1 < length2;
-            Assert.AreEqual("15/5", division.Verbose());
+            string less = length1.To(length2);
+/*            Assert.IsTrue(length1 < length2);
+*/
+            Assert.AreEqual("10/4 < 10/2", less);
         }
         //10 Тест
         [TestMethod()]
         public void More()
         {
-            Length remains = new Length(1780, 500);
-            remains.Remains();
+            Length length1 = new Length(10, 2);
+            Length length2 = new Length(10, 5);
 
-            Assert.AreEqual("89/25", remains.Verbose());
+            string more = length1.To(length2);
+/*            Assert.IsTrue(length1 > length2);
+*/
+            Assert.AreEqual("10/2 > 10/5", more);
         }
     }
 }

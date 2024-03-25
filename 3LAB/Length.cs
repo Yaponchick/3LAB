@@ -18,13 +18,10 @@ namespace _3LAB
             this.valueZ = valueZ;
         }
 
-
         public string Verbose()
         {
             return String.Format("{0}/{1}", this.valueN, this.valueZ);
         }
-
-
 
         public static Length operator +(Length Numerator, Length NumeratorTwo)
         {
@@ -94,26 +91,42 @@ namespace _3LAB
             return result;
         }
 
+        public static bool operator >(Length length1, Length length2)
+        {
+            double value1 = length1.valueN / length1.valueZ;
+            double value2 = length2.valueN / length2.valueZ;
 
+            return value1 > value2;
+        }
 
+        public static bool operator <(Length length1, Length length2)
+        {
+            double value1 = length1.valueN / length1.valueZ;
+            double value2 = length2.valueN / length2.valueZ;
 
+            return value1 < value2;
+        }
 
-
-
-
-
-
-
+        public string To(Length otherLength)
+        {
+            if (this > otherLength)
+                return string.Format("{0} > {1}", this.Verbose(), otherLength.Verbose());
+            else if (this < otherLength)
+                return string.Format("{0} < {1}", this.Verbose(), otherLength.Verbose());
+            else
+                return string.Format("{0} = {1}", this.Verbose(), otherLength.Verbose());
+        }
 
         //Сокращение
-        public void Remains()
+        public string Remains()
         {
-            // Находим наибольший общий делитель числителя и знаменателя
             double result = Divider(valueN, valueZ);
 
-            // Делим числитель и знаменатель на НОД
             valueN /= result;
             valueZ /= result;
+
+            return $"{valueN} / {valueZ}";
+
         }
 
         private double Divider(double a, double b)
@@ -126,17 +139,5 @@ namespace _3LAB
             }
             return a;
         }
-
-
     }
 }
-
-
-
-
-
-
-
-
-
-
