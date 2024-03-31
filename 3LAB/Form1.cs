@@ -1,11 +1,12 @@
+                    /*Задание*/
 /*Правильная дробь, задаваемая числителем и знаменателем.
-
 сложение
 вычитание
 умножение
 деление двух дробей
 сокращение дроби
 сравнение двух дробей*/
+
 using System.Diagnostics.Eventing.Reader;
 using System.Text.RegularExpressions;
 
@@ -17,8 +18,10 @@ namespace _3LAB
         {
             InitializeComponent();
         }
-
-       
+        /*
+        /brief Обработчик события, который вызывается каждый раз, когда значение в одном из текстовых полей изменяется.
+        /param sender - объект вызывающий событие. EventArgs e - содержит дополнительные данные о событии.
+        */
         private void onValueChanged(object sender, EventArgs e)
         {
             if (IsNumeric(txtFirst.Text) && IsNumeric(txtSecond.Text) && IsNumeric(txtThird.Text) && IsNumeric(txtFourth.Text))
@@ -27,17 +30,18 @@ namespace _3LAB
             }
         }
 
-
+        /*
+        /brief Функция для проверки ввода.
+        /param value - введенное число.
+        /return Возвращение значения, если оно является числом.
+        */
         private bool IsNumeric(string value)
         {
                 return double.TryParse(value, out _);
-
         }
-
-
-
-
-
+        /*
+        /brief Функция проверяет ввод и отвечает за логику выбранного пользователем действия.
+        */
         private void Calculate()
         {
             try
@@ -47,17 +51,6 @@ namespace _3LAB
                 var ThirdValue = double.Parse(txtThird.Text);
                 var FourthValue = double.Parse(txtFourth.Text);
 
-/*              bool Valid1= Regex.IsMatch(firstValue.ToString(), @"^[0-9]*(?:\.[0-9]*)?$");
-                bool Valid2 = Regex.IsMatch(secondValue.ToString(), @"^[0-9]*(?:\.[0-9]*)?$");
-                bool Valid3 = Regex.IsMatch(ThirdValue.ToString(), @"^[0-9]*(?:\.[0-9]*)?$");
-                bool Valid4 = Regex.IsMatch(FourthValue.ToString(), @"^[0-9]*(?:\.[0-9]*)?$");
-
-                if(Valid1 || Valid2 || Valid3 || Valid4) // @"^[a-zA-Zа-яА-Я]+$"
-                {
-                    throw new FormatException();
-                }*/
-
-                // Проверка на неравенство нулю для знаменателя
                 if (secondValue == 0 || FourthValue == 0 || firstValue == 0 || ThirdValue == 0)
                 {
                     MessageBox.Show("Знаменатель или числитель не может быть равен нулю!");
@@ -145,16 +138,13 @@ namespace _3LAB
                     
                         txtResult.Text = new Length(0, 0).Verbose();
                         break;
-
                 }
               
             }
             catch (FormatException)
             {
-                MessageBox.Show("Букавы вводить нельзя");
+                MessageBox.Show("Ошибка");
             }
         }
     }
 }
-
-//Добавить описание, проверить код, добавить тесты, сделать отчет

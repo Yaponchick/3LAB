@@ -18,11 +18,20 @@ namespace _3LAB
             this.valueZ = valueZ;
         }
 
+        /*
+       /brief Функция для вывода.
+       /return - Вывод данных.
+       */
         public string Verbose()
         {
             return String.Format("{0}/{1}", this.valueN, this.valueZ);
         }
 
+        /*
+        /brief Функция для сложения.
+        /param Numeretor, NumeretorTwo - операторы, которые представляют дроби.
+        /return result - результат работы функции сложения.
+        */
         public static Length operator +(Length Numerator, Length NumeratorTwo)
         {
             if (Numerator.valueZ == NumeratorTwo.valueZ)
@@ -48,6 +57,11 @@ namespace _3LAB
             }
         }
 
+        /*
+        /brief Функция для вычитания.
+        /param Numeretor, NumeretorTwo - операторы, которые представляют дроби.
+        /return result - результат работы функции вычитания.
+        */
         public static Length operator -(Length Numerator, Length NumeratorTwo)
         {
             if (Numerator.valueZ == NumeratorTwo.valueZ)
@@ -72,6 +86,12 @@ namespace _3LAB
                 return result;
             }
         }
+
+        /*
+        /brief Функция для умножения.
+        /param Numeretor, NumeretorTwo - операторы, которые представляют дроби.
+        /return result - результат работы функции умножения.
+        */
         public static Length operator *(Length Numerator, Length NumeratorTwo)
         {
                 double newNumerator = Numerator.valueN * NumeratorTwo.valueN;
@@ -81,6 +101,12 @@ namespace _3LAB
 
                 return result;
         }
+
+        /*
+        /brief Функция для деления.
+        /param Numeretor, NumeretorTwo - операторы, которые представляют дроби.
+        /return result - результат работы функции деления.
+        */
         public static Length operator /(Length Numerator, Length NumeratorTwo)
         {
             double newNumerator = Numerator.valueN * NumeratorTwo.valueZ;
@@ -90,7 +116,11 @@ namespace _3LAB
 
             return result;
         }
-
+        /*
+        /brief Функция для сравнения.
+        /param lenght, lenght - операторы, которые представляют дроби.
+        /return result - результат работы функции сравнения.
+        */
         public static bool operator >(Length length1, Length length2)
         {
             double value1 = length1.valueN / length1.valueZ;
@@ -98,7 +128,11 @@ namespace _3LAB
 
             return value1 > value2;
         }
-
+        /*
+        /brief Функция для сравнения.
+        /param lenght, lenght - операторы, которые представляют дроби.
+        /return result - результат работы функции сравнения.
+        */
         public static bool operator <(Length length1, Length length2)
         {
             double value1 = length1.valueN / length1.valueZ;
@@ -106,7 +140,11 @@ namespace _3LAB
 
             return value1 < value2;
         }
-
+        /*
+        /brief Метод для преобразования вывода.
+         /param otherLength - переданная длина для сравнения.
+        /return result - результат работы функции преобразования вывода.
+        */
         public string To(Length otherLength)
         {
             if (this > otherLength)
@@ -116,8 +154,10 @@ namespace _3LAB
             else
                 return string.Format("{0} = {1}", this.Verbose(), otherLength.Verbose());
         }
-
-        //Сокращение
+        /*
+        /brief Функция для сокращения.
+        /return result - результат работы функции сокращения.
+        */
         public string Remains()
         {
             double result = Divider(valueN, valueZ);
@@ -128,7 +168,11 @@ namespace _3LAB
             return $"{valueN} / {valueZ}";
 
         }
-
+        /*
+        /brief Функция для поиска максимального делителя.
+        /param a, b - переменные для поиска максимального делителя.
+        /return result - результат работы функции поиска максимального делителя.
+        */
         private double Divider(double a, double b)
         {
             while (b != 0)

@@ -12,6 +12,7 @@ namespace _3LAB.Tests
     public class LengthTests
     {
         //1 Тест
+        //Ситуация - Проверка вывода дроби
         [TestMethod()]
         public void VerboseTest()
         {
@@ -20,6 +21,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("10/5", length.Verbose());
         }
         //2 Тест
+        //Ситуация - Проверка сложения дроби с разными знаменателями 
         [TestMethod()]
         
         public void AddNumberTest()
@@ -31,6 +33,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("19/20", sum.Verbose());
         }
         //3 Тест
+        //Ситуация - Проверка сложения дроби с одинаковыми знаменателями
         [TestMethod()]
 
         public void AddNumberTest2()
@@ -42,6 +45,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("4/4", sum.Verbose());
         }
         //4 Тест
+        //Ситуация - Проверка вычитания дроби с разными знаменателями 
         [TestMethod()]
         public void Subtraction()
         {
@@ -52,6 +56,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("11/20", subtraction.Verbose());
         }
         //5 Тест
+        //Ситуация - Проверка вычиатния дроби с одинаковыми знаменателями
         [TestMethod()]
 
         public void Subtraction2()
@@ -63,6 +68,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("2/4", subtraction.Verbose());
         }
         //6 Тест
+        //Ситуация - Проверка умножения дроби
         [TestMethod()]
 
         public void Multiplication()
@@ -74,6 +80,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("3/16", multiplication.Verbose());
         }
         //7 Тест
+        //Ситуация - Проверка деления дроби
         [TestMethod()]
         public void Division()
         {
@@ -84,6 +91,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("15/4", division.Verbose());
         }
         //8 Тест
+        //Ситуация - Проверка сокращения дроби
         [TestMethod()]
         public void Remains()
         {
@@ -93,6 +101,7 @@ namespace _3LAB.Tests
             Assert.AreEqual("89/25", remains.Verbose());
         }
         //9 Тест
+        //Ситуация - Проверка сравнения дроби (Вторая дробь больше)
         [TestMethod()]
         public void Less()
         {
@@ -100,11 +109,11 @@ namespace _3LAB.Tests
             Length length2 = new Length(10, 2);
 
             string less = length1.To(length2);
-/*            Assert.IsTrue(length1 < length2);
-*/
+
             Assert.AreEqual("10/4 < 10/2", less);
         }
         //10 Тест
+        //Ситуация - Проверка сравнения дроби (Первая дробь больше)
         [TestMethod()]
         public void More()
         {
@@ -112,8 +121,7 @@ namespace _3LAB.Tests
             Length length2 = new Length(10, 5);
 
             string more = length1.To(length2);
-/*            Assert.IsTrue(length1 > length2);
-*/
+
             Assert.AreEqual("10/2 > 10/5", more);
         }
     }
