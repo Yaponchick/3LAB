@@ -44,8 +44,7 @@ namespace _3LAB
         */
         private void Calculate()
         {
-            try
-            {
+            
                 var firstValue = double.Parse(txtFirst.Text);
                 var secondValue = double.Parse(txtSecond.Text);
                 var ThirdValue = double.Parse(txtThird.Text);
@@ -139,12 +138,6 @@ namespace _3LAB
                         txtResult.Text = new Length(0, 0).Verbose();
                         break;
                 }
-              
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Ошибка");
-            }
         }
     }
 }
